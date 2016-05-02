@@ -1,6 +1,6 @@
 {
   "name": "tw-ig-validator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Twitter / Instagram username validator",
   "main": "dist/index.js",
   "bin": {
