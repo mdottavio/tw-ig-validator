@@ -13,18 +13,21 @@ export default class Twitter {
    * Procces a twitter response object to extract valuable information
    *
    * @param  {Object} data
+   * @param  {String}
    * @return {Object} Promise
    */
-  proccessTW(data) {
+  proccessTW(data, query) {
     return new Promise((resolve) => {
       let users = [];
       if (data.num_results > 0) {
         Array.from(data.users).forEach((user) => {
-          users.push({
-            username: user.screen_name,
-            avatar: user.profile_image_url,
-            fullName: user.name
-          });
+          if (user.screen_name === query) {
+            users.push({
+              username: user.screen_name,
+              avatar: user.profile_image_url,
+              fullName: user.name
+            });
+          }
         });
       }
       resolve(users);
@@ -37,6 +40,8 @@ export default class Twitter {
 
   search() {
     return cli.request(this._searchUri(), 'get')
-      .then(this.proccessTW);
+      .then((data) => {
+        return this.proccessTW(data, this.query);
+      });
   }
 }

@@ -13,6 +13,7 @@ export default class Instagram {
    * Procces a instagram response object to extract valuable information
    *
    * @param  {Object} data
+   * @param  {String}
    * @return {Object} Promise
    */
   proccessIG(data, query) {

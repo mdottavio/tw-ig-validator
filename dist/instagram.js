@@ -29,6 +29,7 @@ var Instagram = function () {
    * Procces a instagram response object to extract valuable information
    *
    * @param  {Object} data
+   * @param  {String}
    * @return {Object} Promise
    */
 

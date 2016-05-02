@@ -29,22 +29,25 @@ var Twitter = function () {
    * Procces a twitter response object to extract valuable information
    *
    * @param  {Object} data
+   * @param  {String}
    * @return {Object} Promise
    */
 
 
   _createClass(Twitter, [{
     key: 'proccessTW',
-    value: function proccessTW(data) {
+    value: function proccessTW(data, query) {
       return new Promise(function (resolve) {
         var users = [];
         if (data.num_results > 0) {
           Array.from(data.users).forEach(function (user) {
-            users.push({
-              username: user.screen_name,
-              avatar: user.profile_image_url,
-              fullName: user.name
-            });
+            if (user.screen_name === query) {
+              users.push({
+                username: user.screen_name,
+                avatar: user.profile_image_url,
+                fullName: user.name
+              });
+            }
           });
         }
         resolve(users);
@@ -58,7 +61,11 @@ var Twitter = function () {
   }, {
     key: 'search',
     value: function search() {
-      return _request2.default.request(this._searchUri(), 'get').then(this.proccessTW);
+      var _this = this;
+
+      return _request2.default.request(this._searchUri(), 'get').then(function (data) {
+        return _this.proccessTW(data, _this.query);
+      });
     }
   }]);
 
