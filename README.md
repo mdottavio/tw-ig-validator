@@ -12,7 +12,7 @@ Just run
 ```
 $ tw-ig-validator
 ```
-<img src="tty.gif" width="420px"/>
+<img src="https://raw.githubusercontent.com/mdottavio/tw-ig-validator/master/tty.gif" width="420px"/>
 
 
 ## Did you find a 🐞 ?
