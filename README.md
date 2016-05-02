@@ -12,6 +12,7 @@ Just run
 ```
 $ tw-ig-validator
 ```
+<img src="tty.gif" />
 
 
 ## Did you find a 🐞 ?
