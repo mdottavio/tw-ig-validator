@@ -5,7 +5,7 @@
 Install the the command using npm
 
 ```
-$ npm install egojs -g
+$ npm install tw-ig-validator -g
 ```
 ## Usage
 Just run
